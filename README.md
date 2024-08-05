@@ -1,24 +1,39 @@
-# README
+# DeepL Demo
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Este repositorio es una demostración de cómo integrar el servicio de traducción de DeepL en una aplicación Rails. Incluye ejemplos de un servicio de traducción y un concern para traducir automáticamente campos específicos de un modelo antes de guardarlos.
 
-Things you may want to cover:
+## Instalación
 
-* Ruby version
+1. **Clonar el repositorio**:
 
-* System dependencies
+    ```sh
+    git clone https://github.com/nicobertin/deepl-demo.git
+    cd deepl-demo
+    ```
 
-* Configuration
+2. **Instalar las dependencias**:
 
-* Database creation
+    ```sh
+    bundle install
+    ```
 
-* Database initialization
+3. **Configurar la clave de API de DeepL**:
 
-* How to run the test suite
+    Crea un archivo `.env` en la raíz del proyecto y añade tu clave de API de DeepL:
 
-* Services (job queues, cache servers, search engines, etc.)
+    ```env
+    DEEPL_API_KEY=tu_clave_de_api_deepl
+    ```
 
-* Deployment instructions
+## Uso
 
-* ...
+### Servicio DeepLService
+
+El servicio `DeepLService` se encuentra en `app/services/deep_l_service.rb`. Puedes usar este servicio para traducir texto en cualquier parte de tu aplicación Rails.
+
+Ejemplo de uso:
+
+```ruby
+translated_text = DeepLService.translate("Hola mundo", 'EN')
+puts translated_text  # Output: "Hello world"
+```
